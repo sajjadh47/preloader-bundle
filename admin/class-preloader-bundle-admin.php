@@ -163,9 +163,9 @@ class Preloader_Bundle_Admin {
 		 * This filter allows you to modify the plugin settings sections.
 		 * You can use this filter to add/remove/edit any settings sections.
 		 *
-		 * @since    2.0.0
-		 * @param    array $settings_sections Default settings sections.
-		 * @return   array $settings_sections Modified settings sections.
+		 * @since     2.0.0
+		 * @param     array $settings_sections Default settings sections.
+		 * @return    array $settings_sections Modified settings sections.
 		 */
 		return apply_filters( 'preloader_bundle_settings_sections', $settings_sections );
 	}
@@ -244,9 +244,9 @@ class Preloader_Bundle_Admin {
 		 * This filter allows you to modify the plugin settings fields.
 		 * You can use this filter to add/remove/edit any settings field.
 		 *
-		 * @since    2.0.0
-		 * @param    array $settings_fields Default settings fields.
-		 * @return   array $settings_fields Modified settings fields.
+		 * @since     2.0.0
+		 * @param     array $settings_fields Default settings fields.
+		 * @return    array $settings_fields Modified settings fields.
 		 */
 		return apply_filters( 'preloader_bundle_settings_fields', $settings_fields );
 	}
