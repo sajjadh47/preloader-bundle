@@ -1,93 +1,97 @@
 <?php
-/*
-Plugin Name: Preloader Bundle
-Plugin URI : https://wordpress.org/plugins/preloader-bundle/
-Description: Add Preloader To Your Site With Just One Click! 150+ Preloader To Select From.
-Version: 1.0.2
-Author: Sajjad Hossain Sagor
-Author URI: https://profiles.wordpress.org/sajjad67
-Text Domain: preloader-bundle
-Domain Path: /languages
+/**
+ * The plugin bootstrap file
+ *
+ * This file is read by WordPress to generate the plugin information in the plugin
+ * admin area. This file also includes all of the dependencies used by the plugin,
+ * registers the activation and deactivation functions, and defines a function
+ * that starts the plugin.
+ *
+ * @package           Preloader_Bundle
+ * @author            Sajjad Hossain Sagor <sagorh672@gmail.com>
+ *
+ * Plugin Name:       Preloader Bundle
+ * Plugin URI:        https://wordpress.org/plugins/preloader-bundle/
+ * Description:       Add Preloader To Your Site With Just One Click! 150+ Preloader To Select From.
+ * Version:           2.0.0
+ * Requires at least: 6.5
+ * Requires PHP:      8.0
+ * Author:            Sajjad Hossain Sagor
+ * Author URI:        https://sajjadhsagor.com/
+ * License:           GPL-2.0+
+ * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
+ * Text Domain:       preloader-bundle
+ * Domain Path:       /languages
+ */
 
-License: GPL2
-This WordPress Plugin is free software: you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation, either version 2 of the License, or
-any later version.
-
-This free software is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-GNU General Public License for more details.
-
-You should have received a copy of the GNU General Public License
-along with this software. If not, see http://www.gnu.org/licenses/gpl-2.0.html.
-*/
-
-if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
-
-// ---------------------------------------------------------
-// Define Plugin Folders Path
-// ---------------------------------------------------------
-if ( ! defined( 'PRELOADER_BUNDLE_PLUGIN_PATH' ) ) define( 'PRELOADER_BUNDLE_PLUGIN_PATH', plugin_dir_path( __FILE__ ) );
-
-if ( ! defined( 'PRELOADER_BUNDLE_PLUGIN_URL' ) ) define( 'PRELOADER_BUNDLE_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
-
-if ( ! defined( 'PRELOADER_BUNDLE_PLUGIN_VERSION' ) ) define( 'PRELOADER_BUNDLE_PLUGIN_VERSION', '1.0.0' );
-
-// ---------------------------------------------------------
-// Load Language Translations
-// ---------------------------------------------------------
-add_action( 'plugins_loaded', 'preloader_bundle_load_plugin_textdomain' );
-
-if ( ! function_exists( 'preloader_bundle_load_plugin_textdomain' ) )
-{
-	function preloader_bundle_load_plugin_textdomain()
-	{
-		load_plugin_textdomain( 'preloader-bundle', "", basename( dirname( __FILE__ ) ) . '/languages/' );
-	}
+// If this file is called directly, abort.
+if ( ! defined( 'ABSPATH' ) ) {
+	die;
 }
 
-// ---------------------------------------------------------
-// Load Admin Settings
-// ---------------------------------------------------------
-require_once PRELOADER_BUNDLE_PLUGIN_PATH . 'includes/admin_settings.php';
+/**
+ * Currently plugin version.
+ */
+define( 'PRELOADER_BUNDLE_PLUGIN_VERSION', '2.0.0' );
 
-// ---------------------------------------------------------
-// Load Public Settings
-// ---------------------------------------------------------
-require_once PRELOADER_BUNDLE_PLUGIN_PATH . 'includes/public.php';
+/**
+ * Define Plugin Folders Path
+ */
+define( 'PRELOADER_BUNDLE_PLUGIN_PATH', plugin_dir_path( __FILE__ ) );
 
-// ---------------------------------------------------------
-// Add Go To Settings Page Link in Plugin List Table
-// ---------------------------------------------------------
-add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), 'preloader_bundle_add_goto_settings_link' );
+define( 'PRELOADER_BUNDLE_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 
-if ( ! function_exists( 'preloader_bundle_add_goto_settings_link' ) )
-{
-	function preloader_bundle_add_goto_settings_link( $links )
-	{   
-		$goto_settings_link = array( '<a href="' . admin_url( 'options-general.php?page=preloader-bundle.php' ) . '">' . __( "Settings", 'preloader_bundle' ) . '</a>' );
-		
-		return array_merge( $links, $goto_settings_link );
-	}
+define( 'PRELOADER_BUNDLE_PLUGIN_BASENAME', plugin_basename( __FILE__ ) );
+
+/**
+ * The code that runs during plugin activation.
+ * This action is documented in includes/class-preloader-bundle-activator.php
+ *
+ * @since    2.0.0
+ */
+function on_activate_preloader_bundle() {
+	require_once PRELOADER_BUNDLE_PLUGIN_PATH . 'includes/class-preloader-bundle-activator.php';
+
+	Preloader_Bundle_Activator::on_activate();
 }
 
-// ---------------------------------------------------------
-// Enqueue Plugin Scripts & Stylesheets in Admin
-// ---------------------------------------------------------
-add_action( 'admin_enqueue_scripts', 'preloader_bundle_admin_enqueue_scripts' );
+register_activation_hook( __FILE__, 'on_activate_preloader_bundle' );
 
-if ( ! function_exists( 'preloader_bundle_admin_enqueue_scripts' ) )
-{
-	function preloader_bundle_admin_enqueue_scripts()
-	{
-		global $current_screen;
+/**
+ * The code that runs during plugin deactivation.
+ * This action is documented in includes/class-preloader-bundle-deactivator.php
+ *
+ * @since    2.0.0
+ */
+function on_deactivate_preloader_bundle() {
+	require_once PRELOADER_BUNDLE_PLUGIN_PATH . 'includes/class-preloader-bundle-deactivator.php';
 
-		if ( $current_screen->id !== 'settings_page_preloader-bundle' ) return;
-
-		wp_enqueue_style( 'preloader_bundle_admin_stylesheet', plugins_url( '/assets/admin/css/style.css', __FILE__ ), array(), filemtime( plugin_dir_path( __FILE__ ) . 'assets/admin/css/style.css' ), false );
-		
-		wp_enqueue_script( 'preloader_bundle_admin_script', plugins_url( '/assets/admin/js/script.js', __FILE__ ), array( 'jquery' ) );
-	}
+	Preloader_Bundle_Deactivator::on_deactivate();
 }
+
+register_deactivation_hook( __FILE__, 'on_deactivate_preloader_bundle' );
+
+/**
+ * The core plugin class that is used to define internationalization,
+ * admin-specific hooks, and public-facing site hooks.
+ *
+ * @since    2.0.0
+ */
+require PRELOADER_BUNDLE_PLUGIN_PATH . 'includes/class-preloader-bundle.php';
+
+/**
+ * Begins execution of the plugin.
+ *
+ * Since everything within the plugin is registered via hooks,
+ * then kicking off the plugin from this point in the file does
+ * not affect the page life cycle.
+ *
+ * @since    2.0.0
+ */
+function run_preloader_bundle() {
+	$plugin = new Preloader_Bundle();
+
+	$plugin->run();
+}
+
+run_preloader_bundle();

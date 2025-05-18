@@ -1,9 +1,10 @@
 === Preloader Bundle ===
+Tags: preloader, preloader-bundle, gifs, gifs-preloader, animation
 Contributors: sajjad67
-Tags: preloader,preloader-bundle,gifs,gifs-preloader,preloader-gifs,animation
+Author: Sajjad Hossain Sagor
 Requires at least: 5.6
-Tested up to: 6.6
-Stable tag: 1.0.2
+Tested up to: 6.8
+Stable tag: 2.0.0
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -18,9 +19,6 @@ Add Preloader To Your Site With Just One Click! 150+ Preloader To Select From.
 - Preloader Closing Multiple Option
 - Choose Preloader Design From 150 Different Types
 
-**Interested in contributing to Preloader Bundle?**
-Contact me... sagorh672(at)gmail.com
-
 == Installation ==
 To add a WordPress Plugin using the built-in plugin installer:
 
@@ -32,8 +30,8 @@ Go to Plugins > Add New.
 4. The resulting installation screen will list the installation as successful or note any problems during the install.
 If successful, click Activate Plugin to activate it, or Return to Plugin Installer for further actions.
 
-To add a WordPress Plugin from github repo / plugin zip file :
-1. Go to wordpress plugin page
+To add a WordPress Plugin from GitHub repo / plugin zip file :
+1. Go to WordPress plugin page
 2. Click Add New & Upload Plugin
 3. Drag / Click upload the plugin zip file
 4. The resulting installation screen will list the installation as successful or note any problems during the install.
@@ -41,20 +39,21 @@ If successful, click Activate Plugin to activate it, or Return to Plugin Install
 
 == Frequently Asked Questions ==
 = How to use this plugin? =
-Just after installing the plugin, go to settings page and set the plugin settings according to your needs.. And then see the magic.. See screenshots.
+Just after installing the plugin, go to settings page and set the plugin settings according to your needs. And then see the magic. See screenshots.
 
 == Screenshots ==
 1. settings
 2. front preloader
 
 == Changelog ==
+= 2.0.0 =
+- Checked for latest wp version 6.8
 = 1.0.2 =
 - Compatibility check for wp 6.6
 = 1.0.1 =
 - Compatibility check for wp 6.3
 = 1.0.0 =
 - Initial release.
-
 
 == Upgrade Notice ==
 Always try to keep your plugin update so that you can get the improved and additional features added to this plugin up to date.

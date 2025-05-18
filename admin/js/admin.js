@@ -6,14 +6,14 @@ jQuery( document ).ready( function( $ )
 
 	seconds_to_close_the_preloader.hide();
 
-	if ( close_preloader.find( 'select' ).val() === '1' )
+	if ( 'seconds_later' === close_preloader.find( 'select' ).val() )
 	{
 		seconds_to_close_the_preloader.show();
 	}
 
 	close_preloader.find( 'select' ).change( function ( e )
 	{
-		if ( $( this ).val() == '1' )
+		if ( 'seconds_later' === $( this ).val() )
 		{
 			seconds_to_close_the_preloader.show();
 		}
@@ -21,5 +21,5 @@ jQuery( document ).ready( function( $ )
 		{
 			seconds_to_close_the_preloader.hide();
 		}
-	});
+	} );
 } );
