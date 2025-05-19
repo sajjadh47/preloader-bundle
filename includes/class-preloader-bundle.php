@@ -73,11 +73,11 @@ class Preloader_Bundle {
 	 *
 	 * Include the following files that make up the plugin:
 	 *
-	 * - Preloader_Bundle_Loader.  Orchestrates the hooks of the plugin.
-	 * - Preloader_Bundle_i18n.    Defines internationalization functionality.
+	 * - Preloader_Bundle_Loader. Orchestrates the hooks of the plugin.
+	 * - Preloader_Bundle_i18n.   Defines internationalization functionality.
 	 * - Sajjad_Dev_Settings_API. Provides an interface for interacting with the WordPress Options API.
-	 * - Preloader_Bundle_Admin.   Defines all hooks for the admin area.
-	 * - Preloader_Bundle_Public.  Defines all hooks for the public side of the site.
+	 * - Preloader_Bundle_Admin.  Defines all hooks for the admin area.
+	 * - Preloader_Bundle_Public. Defines all hooks for the public side of the site.
 	 *
 	 * Create an instance of the loader which will be used to register the hooks
 	 * with WordPress.
@@ -219,6 +219,7 @@ class Preloader_Bundle {
 	 *
 	 * @since     2.0.0
 	 * @access    public
+	 * @static
 	 * @param     string $option        The name of the settings field.
 	 * @param     string $section       The name of the section this field belongs to. This corresponds
 	 *                                  to the option name used in `register_setting()`.
