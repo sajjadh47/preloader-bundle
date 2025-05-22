@@ -75,7 +75,7 @@ class Preloader_Bundle {
 	 *
 	 * - Preloader_Bundle_Loader. Orchestrates the hooks of the plugin.
 	 * - Preloader_Bundle_i18n.   Defines internationalization functionality.
-	 * - Sajjad_Dev_Settings_API. Provides an interface for interacting with the WordPress Options API.
+	 * - Sajjad_Dev_Settings_API. Provides an interface for interacting with the WordPress Settings API.
 	 * - Preloader_Bundle_Admin.  Defines all hooks for the admin area.
 	 * - Preloader_Bundle_Public. Defines all hooks for the public side of the site.
 	 *
@@ -99,7 +99,7 @@ class Preloader_Bundle {
 		require_once PRELOADER_BUNDLE_PLUGIN_PATH . 'includes/class-preloader-bundle-i18n.php';
 
 		/**
-		 * The class responsible for defining an interface for interacting with the WordPress Options API.
+		 * The class responsible for defining an interface for interacting with the WordPress Settings API.
 		 */
 		require_once PRELOADER_BUNDLE_PLUGIN_PATH . 'includes/class-sajjad-dev-settings-api.php';
 
