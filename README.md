@@ -1,5 +1,7 @@
 # Preloader Bundle
 
+[![Plugin Banner](https://ps.w.org/preloader-bundle/assets/banner-772x250.png)](https://wordpress.org/plugins/preloader-bundle/)
+
 **Tags:** preloader, preloader-bundle, gifs, gifs-preloader, preloader-gifs, animation \
 **Tested up to:** 6.8 \
 **Requires PHP:** 8.0
