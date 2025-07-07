@@ -107,7 +107,7 @@ class Preloader_Bundle_Admin {
 			'manage_options',
 			'preloader-bundle',
 			array( $this, 'menu_page' ),
-			'dashicons-admin-tools'
+			'dashicons-update'
 		);
 	}
 
