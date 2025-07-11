@@ -4,7 +4,7 @@ Contributors: sajjad67
 Author: Sajjad Hossain Sagor
 Requires at least: 5.6
 Tested up to: 6.8
-Stable tag: 2.0.0
+Stable tag: 2.0.1
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -46,6 +46,8 @@ Just after installing the plugin, go to settings page and set the plugin setting
 2. front preloader
 
 == Changelog ==
+= 2.0.1 =
+- Fixed issue: typo giving fatal error
 = 2.0.0 =
 - Checked for latest wp version 6.8
 = 1.0.2 =
